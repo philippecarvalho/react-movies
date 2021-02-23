@@ -8,6 +8,7 @@ import SearchResult from "./components/SearchResult";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
+  document.title = "React Movies";
   return (
     <Router>
       <div className="App">
