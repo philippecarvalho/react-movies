@@ -2,9 +2,9 @@
 
 Um app em react para encontrar informações sobre filmes.
 
-### [Acesse aqui](https://reactmovies.phcarvalho.com.br/)
+### [Acesse aqui](https://reactmovies.phcarvalho.com.br/) | [Veja no youtube](https://www.youtube.com/watch?v=dIOWFnyuA_g)
 
-![imgur](https://i.imgur.com/6Rz3HYJ.gif)
+![imgur](https://i.imgur.com/YDa8JYS.png)
 
 ## Tecnologias utilizadas:
 
