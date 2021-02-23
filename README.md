@@ -4,7 +4,7 @@ Um app em react para encontrar informações sobre filmes.
 
 ### [Acesse aqui](https://reactmovies.phcarvalho.com.br/)
 
-![imgur](https://i.imgur.com/LIYYaI7.gif)
+![imgur](https://i.imgur.com/6Rz3HYJ.gif)
 
 ## Tecnologias utilizadas:
 
