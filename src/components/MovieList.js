@@ -31,6 +31,7 @@ const MovieList = (props) => {
 
   useEffect(() => {
     fetchMovies();
+    window.scrollTo(0, 0);
   }, [props.movieID]);
 
   const imgBaseURL = "https://image.tmdb.org/t/p/original/";
