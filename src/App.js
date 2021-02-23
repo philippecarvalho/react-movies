@@ -22,12 +22,12 @@ function App() {
             </div>
           </Link>
 
-          {/* <span>
-            <Link to="/about">About</Link>
-          </span>
-
-          <input type="text" name="" id="" /> */}
-          <SearchBox />
+          <div class="searchAndLinks">
+            <SearchBox />
+            <span>
+              <Link to="/about">Sobre</Link>
+            </span>
+          </div>
         </header>
       </div>
 
@@ -39,17 +39,16 @@ function App() {
         />
         <Route path="/movies/:id" component={MovieItem} />
         <Route path="/search/:query" component={SearchResult} />
-        <Route path="/about" component={About} />
+        <Route
+          path="/about"
+          component={() => {
+            window.location.href =
+              "https://github.com/philippecarvalho/react-movies";
+            return null;
+          }}
+        />
       </Switch>
     </Router>
-  );
-}
-
-function About() {
-  return (
-    <div>
-      <h1>Philippe Carvalho</h1>
-    </div>
   );
 }
 

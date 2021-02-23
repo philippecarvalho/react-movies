@@ -83,6 +83,27 @@ header form input:focus {
   box-shadow: 0px 0px 11px -3px rgb(30 104 216 / 51%);
 }
 
+.searchAndLinks {
+  display: flex;
+}
+
+.searchAndLinks span {
+  display: flex;
+  align-items: center;
+}
+
+.searchAndLinks span a {
+  color: #212121;
+}
+
+.searchAndLinks span a:hover {
+  color: #1e68d8;
+}
+
+.searchBox {
+  margin: 0 20px 0 0;
+}
+
 textarea:focus,
 input:focus {
   outline: none;

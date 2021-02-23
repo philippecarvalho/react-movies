@@ -12,7 +12,7 @@ const SearchBox = (props) => {
   };
 
   return (
-    <div>
+    <div className="searchBox">
       <form onSubmit={onSubmit}>
         <input
           onChange={(event) => setSearchValue(event.target.value)}
