@@ -3,20 +3,18 @@ import { Link } from "react-router-dom";
 
 const SearchResult = ({ match }) => {
   const [movies, setMovies] = useState([]);
-
   const searchValue = match.params.query;
-
   const searchMoviesURL = `https://api.themoviedb.org/3/search/movie?api_key=450bf04edaaa49ba73752463a5e7270d&language=pt-BR&query=${searchValue}&page=1&include_adult=false`;
 
-  const fetchMovies = async () => {
-    const response = await fetch(searchMoviesURL);
-    const data = await response.json();
-    setMovies(data.results);
-  };
-
   useEffect(() => {
+    const fetchMovies = async () => {
+      const response = await fetch(searchMoviesURL);
+      const data = await response.json();
+      setMovies(data.results);
+    };
+
     fetchMovies();
-  }, [match.params.query]);
+  }, [match.params.query, searchValue, searchMoviesURL]);
 
   const imgBaseURL = "https://image.tmdb.org/t/p/original/";
 

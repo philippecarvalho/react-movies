@@ -15,24 +15,26 @@ const MovieList = (props) => {
   const trendingMoviesURL =
     "https://api.themoviedb.org/3/trending/movie/week?api_key=450bf04edaaa49ba73752463a5e7270d&language=pt-BR";
 
-  const fetchMovies = async () => {
-    if (props.movieID) {
-      const response = await fetch(similarMoviesURL);
-      const data = await response.json();
-      setMovies(data.results);
-    } else {
-      const response = await fetch(trendingMoviesURL);
-      const data = await response.json();
-      setMovies(data.results);
-    }
-
-    setLoading(false);
-  };
-
   useEffect(() => {
+    document.getElementById("search-form").reset();
+
+    const fetchMovies = async () => {
+      if (props.movieID) {
+        const response = await fetch(similarMoviesURL);
+        const data = await response.json();
+        setMovies(data.results);
+      } else {
+        const response = await fetch(trendingMoviesURL);
+        const data = await response.json();
+        setMovies(data.results);
+      }
+
+      setLoading(false);
+    };
+
     fetchMovies();
     window.scrollTo(0, 0);
-  }, [props.movieID]);
+  }, [props.movieID, similarMoviesURL]);
 
   const imgBaseURL = "https://image.tmdb.org/t/p/original/";
 

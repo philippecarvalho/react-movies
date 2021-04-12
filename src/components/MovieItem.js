@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MovieList from "./MovieList";
+import { ProvidersList } from "./ProvidersList";
 
 import Loader from "react-loader-spinner";
 
@@ -13,18 +14,18 @@ const MovieItem = ({ match }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const fetchMovie = async () => {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${movieID}?api_key=450bf04edaaa49ba73752463a5e7270d&language=pt-BR`
+      );
+      const data = await response.json();
+      setMovie(data);
+      setGenres(data.genres);
+      setLoading(false);
+    };
+
     fetchMovie();
   }, [movieID]);
-
-  const fetchMovie = async () => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieID}?api_key=450bf04edaaa49ba73752463a5e7270d&language=pt-BR`
-    );
-    const data = await response.json();
-    setMovie(data);
-    setGenres(data.genres);
-    setLoading(false);
-  };
 
   if (loading) {
     return (
@@ -69,43 +70,6 @@ const MovieItem = ({ match }) => {
       )}
     </div>
   );
-};
-
-const ProvidersList = (props) => {
-  const movieID = props.movieID;
-  const [providers, setProviders] = useState([]);
-
-  useEffect(() => {
-    fetchProvider();
-  }, [movieID]);
-
-  const fetchProvider = async () => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieID}/watch/providers?api_key=450bf04edaaa49ba73752463a5e7270d`
-    );
-    const data = await response.json();
-    setProviders(data.results);
-  };
-
-  if (providers.BR) {
-    if (providers.BR.flatrate) {
-      return (
-        <div className="providerList">
-          {providers.BR.flatrate.map((item) => (
-            <div>
-              <img
-                src={`${imgBaseURL}${item.logo_path}`}
-                alt={`${item.provider_name}`}
-                title={`${item.provider_name}`}
-              />
-            </div>
-          ))}
-        </div>
-      );
-    }
-  }
-
-  return <span>Nenhum streaming disponível</span>;
 };
 
 export default MovieItem;
