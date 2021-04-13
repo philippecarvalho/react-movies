@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { searchMultipleMovies } from "../services/search";
+import { searchMultipleMovies } from "../utils/search";
+import { imgBaseURL } from "../utils/imgBaseURL";
 
 const SearchResult = ({ match }) => {
   const [movies, setMovies] = useState([]);
@@ -11,8 +12,6 @@ const SearchResult = ({ match }) => {
       setMovies(response.data.results)
     );
   }, [searchValue]);
-
-  const imgBaseURL = "https://image.tmdb.org/t/p/original/";
 
   return (
     <div className="listItem">

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
-import { searchTrendingMovies, searchSimilarMovies } from "../services/search";
+import { searchTrendingMovies, searchSimilarMovies } from "../utils/search";
+import { imgBaseURL } from "../utils/imgBaseURL";
 
 import Loader from "react-loader-spinner";
 
@@ -26,8 +26,6 @@ const MovieList = (props) => {
 
     window.scrollTo(0, 0);
   }, [props.movieID]);
-
-  const imgBaseURL = "https://image.tmdb.org/t/p/original/";
 
   if (loading) {
     return (

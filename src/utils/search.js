@@ -1,14 +1,4 @@
 import axios from "axios";
-
-// const similarMoviesURL = `https://api.themoviedb.org/3/movie/${props.movieID}/similar?api_key=450bf04edaaa49ba73752463a5e7270d&language=pt-BR&page=1`;
-
-// const trendingMoviesURL =
-//   "https://api.themoviedb.org/3/trending/movie/week?api_key=450bf04edaaa49ba73752463a5e7270d&language=pt-BR";
-
-// const providers = `https://api.themoviedb.org/3/movie/${movieID}/watch/providers?api_key=450bf04edaaa49ba73752463a5e7270d`;
-
-// const singleMovie = `https://api.themoviedb.org/3/movie/${movieID}?api_key=450bf04edaaa49ba73752463a5e7270d&language=pt-BR`;
-
 const api_key = "api_key=450bf04edaaa49ba73752463a5e7270d&language=pt-BR";
 const apiURL = "https://api.themoviedb.org/3/";
 

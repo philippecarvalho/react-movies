@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { searchProviders } from "../services/search";
+import { searchProviders } from "../utils/search";
+import { imgBaseURL } from "../utils/imgBaseURL";
 
 export function ProvidersList(props) {
-  const imgBaseURL = "https://image.tmdb.org/t/p/original/";
-
   const movieID = props.movieID;
   const [providers, setProviders] = useState([]);
 

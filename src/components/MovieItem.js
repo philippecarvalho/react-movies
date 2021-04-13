@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import MovieList from "./MovieList";
 import { ProvidersList } from "./ProvidersList";
-
+import { imgBaseURL } from "../utils/imgBaseURL";
+import { searchSingleMovie } from "../utils/search";
 import Loader from "react-loader-spinner";
-import { searchSingleMovie } from "../services/search";
-
-const imgBaseURL = "https://image.tmdb.org/t/p/original/";
 
 const MovieItem = ({ match }) => {
   const movieID = match.params.id;
