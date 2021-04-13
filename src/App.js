@@ -14,7 +14,7 @@ function App() {
       <div className="App">
         <header>
           <Link to="/">
-            <div class="logoContainer">
+            <div className="logoContainer">
               <img
                 alt="react movie logo"
                 src={window.location.origin + "/logo-react-movies.png"}
@@ -23,7 +23,7 @@ function App() {
             </div>
           </Link>
 
-          <div class="searchAndLinks">
+          <div className="searchAndLinks">
             <SearchBox />
             <span>
               <Link to="/about">Sobre</Link>
