@@ -3,6 +3,7 @@ import MovieList from "./MovieList";
 import { ProvidersList } from "./ProvidersList";
 
 import Loader from "react-loader-spinner";
+import { searchSingleMovie } from "../services/search";
 
 const imgBaseURL = "https://image.tmdb.org/t/p/original/";
 
@@ -14,17 +15,11 @@ const MovieItem = ({ match }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchMovie = async () => {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${movieID}?api_key=450bf04edaaa49ba73752463a5e7270d&language=pt-BR`
-      );
-      const data = await response.json();
-      setMovie(data);
-      setGenres(data.genres);
+    searchSingleMovie(movieID).then((response) => {
+      setMovie(response.data);
+      setGenres(response.data.genres);
       setLoading(false);
-    };
-
-    fetchMovie();
+    });
   }, [movieID]);
 
   if (loading) {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { searchProviders } from "../services/search";
 
 export function ProvidersList(props) {
   const imgBaseURL = "https://image.tmdb.org/t/p/original/";
@@ -7,15 +8,9 @@ export function ProvidersList(props) {
   const [providers, setProviders] = useState([]);
 
   useEffect(() => {
-    const fetchProvider = async () => {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${movieID}/watch/providers?api_key=450bf04edaaa49ba73752463a5e7270d`
-      );
-      const data = await response.json();
-      setProviders(data.results);
-    };
-
-    fetchProvider();
+    searchProviders(movieID).then((response) => {
+      setProviders(response.data.results);
+    });
   }, [movieID]);
 
   if (providers.BR) {
