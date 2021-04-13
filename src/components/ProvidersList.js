@@ -17,7 +17,7 @@ export function ProvidersList(props) {
       return (
         <div className="providerList">
           {providers.BR.flatrate.map((item) => (
-            <div>
+            <div key={item.provider_id}>
               <img
                 src={`${imgBaseURL}${item.logo_path}`}
                 alt={`${item.provider_name}`}
