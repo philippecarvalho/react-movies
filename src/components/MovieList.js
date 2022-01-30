@@ -38,8 +38,8 @@ const MovieList = (props) => {
   return (
     <div className="listItem">
       <div className="movie-list-container">
+        <h1>{props.title}</h1>
         <ul className="movie-list">
-          <h1>{props.title}</h1>
           {movies.map((item) => (
             <Link key={item.id} to={`/movies/${item.id}`}>
               <li className="movie-item">
